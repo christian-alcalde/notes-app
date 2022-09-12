@@ -1,10 +1,14 @@
 import React from "react";
 
-function Note({text, date}) {
+function Note({note, onDelete}) {
+  function handleDelete() {
+    onDelete(note.id);
+  }
+
   return (
-    <li>
-      <p>{text}</p>
-      <p><em>- {date}</em></p>
+    <li onClick={handleDelete}>
+      <p>{note.message}</p>
+      <p><em>- {note.date}</em></p>
     </li>
   );
 }

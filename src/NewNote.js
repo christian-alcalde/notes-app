@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 function NewNote({submitHandler}) {
   const [messageText, setMessageText] = useState('');
@@ -6,7 +7,7 @@ function NewNote({submitHandler}) {
   function handleSubmit(evt) {
     evt.preventDefault();
     const date = new Date();
-    let note = {message: messageText, date: date.toUTCString()};
+    let note = {id: uuidv4(), message: messageText, date: date.toUTCString()};
     setMessageText('')
     submitHandler(note);
   }

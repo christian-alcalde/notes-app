@@ -3,13 +3,13 @@ import SearchBar from './SearchBar';
 import NotesList from './NotesList';
 
 const NOTES = [
-  {message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
+  {id: 1, message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
   date: 'Mon, 12 Sep 2022 02:56:09 GMT'},
-  {message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
+  {id: 2, message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
   date: 'Tue, 13 Sep 2022 02:56:09 GMT'},
-  {message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
+  {id: 3, message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
   date: 'Wed, 14 Sep 2022 02:56:09 GMT'},
-  {message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
+  {id: 4, message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
   date: 'Thu, 15 Sep 2022 02:56:09 GMT'}
 ]
 
@@ -25,11 +25,15 @@ const App = () => {
     setNotes([note, ...notes]);
   }
 
+  function deleteNote(id) {
+    setNotes(notes.filter(note => note.id !== id));
+  }
+
   return (
     <div>
       <h1>Notes</h1>
       <SearchBar onSearch={noteFilter}/>
-      <NotesList list={notes} submitHandler={addNoteHandler} filteredString={filteredString}/>
+      <NotesList list={notes} submitHandler={addNoteHandler} filteredString={filteredString} onDelete={deleteNote}/>
     </div>
   )
 }

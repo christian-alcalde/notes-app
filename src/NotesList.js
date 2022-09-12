@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Note from './Note';
 import NewNote from './NewNote';
 
-function NotesList({list, submitHandler, filteredString}) {
+function NotesList({list, submitHandler, filteredString, onDelete}) {
   const [filteredList, setFilteredList] = useState(list);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function NotesList({list, submitHandler, filteredString}) {
   return (
     <div>
       <ul>
-        {filteredList.map(note => <Note text={note.message} date={note.date}/>)}
+        {filteredList.map(note => <Note key={note.id} note={note} onDelete={onDelete}/>)}
       </ul>
         <NewNote submitHandler={submitHandler}/>
     </div>
