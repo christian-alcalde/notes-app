@@ -1,4 +1,5 @@
 import React from "react";
+import './Note.css';
 
 function Note({note, onDelete}) {
   function handleDelete() {
@@ -6,7 +7,7 @@ function Note({note, onDelete}) {
   }
 
   return (
-    <li onClick={handleDelete}>
+    <li className='note-container' onClick={handleDelete}>
       <p>{note.message}</p>
       <p><em>- {note.date}</em></p>
     </li>

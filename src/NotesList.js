@@ -10,12 +10,12 @@ function NotesList({list, submitHandler, filteredString, onDelete}) {
   }, [list, filteredString])
 
   return (
-    <div>
+    <>
       <ul>
         {filteredList.map(note => <Note key={note.id} note={note} onDelete={onDelete}/>)}
       </ul>
         <NewNote submitHandler={submitHandler}/>
-    </div>
+    </>
   );
 }
 

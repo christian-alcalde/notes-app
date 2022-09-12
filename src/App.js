@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import SearchBar from './SearchBar';
 import NotesList from './NotesList';
+import './App.css';
 
 const NOTES = [
   {id: 1, message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel. Tristique senectus et netus et.',
@@ -30,7 +31,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="container-md">
       <h1>Notes</h1>
       <SearchBar onSearch={noteFilter}/>
       <NotesList list={notes} submitHandler={addNoteHandler} filteredString={filteredString} onDelete={deleteNote}/>

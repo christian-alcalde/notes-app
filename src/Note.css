@@ -1,0 +1,33 @@
+.note-container {
+  display: inline-block;
+  height: 286px;
+  width: 272px;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  transition: 0.5s;
+}
+
+.note-container:hover {
+  background-color: #FF7F7F;
+  transition: 0.5s;
+}
+
+.new-note-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-note {
+  width: 50%;
+  margin-right: 15px;
+}
+
+.new-note-button {
+  margin-top: 10px;
+  margin-left: 25%;
+  width: 50%;
+  justify-content: center;
+}
