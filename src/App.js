@@ -15,6 +15,11 @@ const NOTES = [
 
 const App = () => {
   const [notes, setNotes] = useState(NOTES);
+  const [filteredString, setFilteredString] = useState('');
+
+  function noteFilter(searchTerm) {
+    setFilteredString(searchTerm);
+  }
 
   function addNoteHandler(note) {
     setNotes([note, ...notes]);
@@ -23,8 +28,8 @@ const App = () => {
   return (
     <div>
       <h1>Notes</h1>
-      <SearchBar/>
-      <NotesList list={notes} submitHandler={addNoteHandler}/>
+      <SearchBar onSearch={noteFilter}/>
+      <NotesList list={notes} submitHandler={addNoteHandler} filteredString={filteredString}/>
     </div>
   )
 }

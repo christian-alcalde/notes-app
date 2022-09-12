@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
-function SearchBar() {
+function SearchBar({onSearch}) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    onSearch(searchTerm);
+  }, [searchTerm])
+
+  function handleChange(evt) {
+    setSearchTerm(evt.target.value);
+  }
+
   return (
-    <form>
-      <input type='text' name='filter' placeholder="Type to search..."/>
-    </form>
+    <input type='text' name='filter' onChange={handleChange} value={searchTerm} placeholder="Type to search..."/>
   );
 }
 

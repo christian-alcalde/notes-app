@@ -2,10 +2,10 @@ import React from "react";
 
 function Note({text, date}) {
   return (
-    <div>
+    <li>
       <p>{text}</p>
       <p><em>- {date}</em></p>
-    </div>
+    </li>
   );
 }
 

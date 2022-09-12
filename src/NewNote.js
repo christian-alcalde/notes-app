@@ -18,7 +18,7 @@ function NewNote({submitHandler}) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type='text' id='message' maxlength='200' value={messageText} onChange={handleChange}/>
+        <input type='text' id='message' maxLength='200' value={messageText} onChange={handleChange}/>
         <label htmlFor="message">Characters Remaining: {200-messageText.length}</label>
         <button>Save</button>
       </form>
